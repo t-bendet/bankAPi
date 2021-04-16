@@ -19,7 +19,7 @@ app.post("/bank/new_client", (req, res) => {
   res.status(201).send(`client ${id} was created successfully`);
 });
 
-// depositing
+// depositing (query params:sum)
 app.put("/bank/clients/deposit/:id", (req, res) => {
   const { id } = req.params;
   const { sum } = req.query;
@@ -33,7 +33,7 @@ app.put("/bank/clients/deposit/:id", (req, res) => {
   }
 });
 
-// update credit (put)
+// update credit (query params:sum)
 app.put("/bank/clients/credit/:id", (req, res) => {
   const { id } = req.params;
   const { sum } = req.query;
@@ -48,7 +48,7 @@ app.put("/bank/clients/credit/:id", (req, res) => {
   }
 });
 
-// withdraw money (put)
+// withdraw money (query params:sum)
 app.put("/bank/clients/withdraw/:id", (req, res) => {
   const { id } = req.params;
   const { sum } = req.query;
@@ -70,7 +70,7 @@ app.put("/bank/clients/withdraw/:id", (req, res) => {
   }
 });
 
-//transferring (put)
+//transferring (query params:sum, from_client, to_client )
 app.put("/bank/clients/transfer", (req, res) => {
   const { sum, from_client, to_client } = req.query;
   if (checkRequestIsValid(from_client, sum, to_client)) {
