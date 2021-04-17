@@ -13,7 +13,7 @@ const {
 
 app.use(express.json());
 
-// add users
+// add user
 app.post("/bank/new_client", (req, res) => {
   const id = createClient();
   res.status(201).send(`client ${id} was created successfully`);
